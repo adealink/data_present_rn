@@ -2,7 +2,11 @@
  * Created by sunxiaodong on 2017/5/20.
  */
 import React, {Component, PropTypes} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {View, StyleSheet, Text, Button, TextInput} from 'react-native';
+import {dp} from '../../../utils/DimensionUtil';
+import * as mainActions from './actions';
 
 /**
  * 主界面
@@ -22,11 +26,17 @@ class MainScreen extends Component {
     }
 
     render() {
+        const {navigation, actions} = this.props;
         return (
             <View style={styles.bg}>
+                <TextInput
+                    style={styles.textInput}
+                    onChangeText={actions.change}
+                />
                 <Text style={styles.welcome}>
-                    主界面
+                    {this.props.output}
                 </Text>
+                <Button title='退出登录' onPress={() => navigation.dispatch({type: 'Logout'})}/>
             </View>
         );
     }
@@ -42,7 +52,24 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         margin: 10,
-    }
+    },
+    textInput: {
+        height: dp(110),
+        justifyContent: 'center',
+        backgroundColor: '#FFFFFF'
+    },
 });
 
-export default MainScreen;
+const mapStateToProps = (state, ownProps) => {
+    return {
+        output: state.main.output
+    }
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        actions: bindActionCreators(mainActions, dispatch)
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainScreen);
