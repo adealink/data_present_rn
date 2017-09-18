@@ -4,7 +4,7 @@ let ScreenWidth = Dimensions.get('window').width;
 let ScreenHeight = Dimensions.get('window').height;
 let ScreenScale = Dimensions.get('window').scale;
 
-//按比例转换像素，输入750宽度设计图的像素
+// 按比例转换像素，输入750宽度设计图的像素
 export function dp(width) {
   return width / 2;
 }

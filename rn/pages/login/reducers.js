@@ -3,6 +3,4 @@
  */
 import login from './components/reducers';
 
-export {
-    login
-}
+export { login };

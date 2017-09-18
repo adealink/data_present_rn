@@ -1,0 +1,47 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 7, // ECMAScript版本，7为ES7
+    "sourceType": "module", //默认script，如果代码是ECMAScript模块，设置为module
+    "ecmaFeatures": {
+      // 使用额外的语言特性
+      "jsx": true // 启用JSX
+    }
+  },
+  "extends": [
+    "airbnb",
+    "prettier" // 必须位于最后，覆盖代码风格相关 rules
+  ],
+  "plugins": ["react", "jsx-a11y", "import"],
+  "globals": { "__DEV__": false, "fetch": false },
+  "rules": {
+    "no-use-before-define": ["error", { "functions": false }], // 为便于代码阅读，允许函数晚于使用定义
+    "indent": ["error", 2, { "SwitchCase": 1 }], // JavaScript代码强制使用一致的缩进：4格缩进
+    "class-methods-use-this": [0],
+    "no-unused-vars": [2, { "args": "none" }],
+    "import/imports-first": 0,
+    "import/newline-after-import": 0,
+    "import/no-dynamic-require": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-named-as-default": 0,
+    "import/no-unresolved": 2,
+    "import/prefer-default-export": 0,
+    "jsx-a11y/aria-props": 2,
+    "jsx-a11y/heading-has-content": 0,
+    "jsx-a11y/label-has-for": 2,
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }],
+    "jsx-a11y/mouse-events-have-key-events": 2,
+    "jsx-a11y/role-has-required-aria-props": 2,
+    "jsx-a11y/role-supports-aria-props": 2,
+    "react/forbid-prop-types": 1,
+    "react/jsx-first-prop-new-line": [2, "multiline"],
+    "react/jsx-filename-extension": 0,
+    "react/jsx-no-target-blank": 0,
+    "react/require-extension": 0,
+    "react/self-closing-comp": 0,
+    "react/prefer-stateless-function": 0,
+    "react/require-default-props": 0,
+    "react/sort-comp": 0,
+    "no-underscore-dangle": 0
+  }
+}

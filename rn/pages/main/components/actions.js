@@ -3,6 +3,4 @@
  */
 import * as actionTypes from './actionTypes';
 
-export const change = (text) => {
-    return {type: actionTypes.CHANGE, text: text}
-};
+export const change = text => ({ type: actionTypes.CHANGE, text });

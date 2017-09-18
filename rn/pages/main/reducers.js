@@ -3,6 +3,4 @@
  */
 import main from './components/reducers';
 
-export {
-    main
-}
+export { main };

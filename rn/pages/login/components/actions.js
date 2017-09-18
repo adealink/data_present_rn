@@ -3,6 +3,4 @@
  */
 import * as actionTypes from './actionTypes';
 
-export const verify = (text) => {
-    return {type: actionTypes.VERIFY, text: text}
-};
+export const verify = text => ({ type: actionTypes.VERIFY, text });
