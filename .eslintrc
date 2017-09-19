@@ -1,6 +1,7 @@
 {
+  "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaVersion": 7, // ECMAScript版本，7为ES7
+    "ecmaVersion": 8, // ECMAScript版本，8为ES8
     "sourceType": "module", //默认script，如果代码是ECMAScript模块，设置为module
     "ecmaFeatures": {
       // 使用额外的语言特性
@@ -14,7 +15,6 @@
   "plugins": ["react", "jsx-a11y", "import"],
   "globals": { "__DEV__": false, "fetch": false },
   "rules": {
-    "no-use-before-define": ["error", { "functions": false }], // 为便于代码阅读，允许函数晚于使用定义
     "indent": ["error", 2, { "SwitchCase": 1 }], // JavaScript代码强制使用一致的缩进：4格缩进
     "class-methods-use-this": [0],
     "no-unused-vars": [2, { "args": "none" }],
@@ -42,6 +42,11 @@
     "react/prefer-stateless-function": 0,
     "react/require-default-props": 0,
     "react/sort-comp": 0,
-    "no-underscore-dangle": 0
+    "no-underscore-dangle": 0,
+    "no-use-before-define": [
+      "error",
+      { "variables": false, "functions": false, "classes": false }
+    ], // 为便于代码阅读，允许函数晚于使用定义
+    "no-useless-constructor": 0
   }
 }

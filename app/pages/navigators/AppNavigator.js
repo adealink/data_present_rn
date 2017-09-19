@@ -1,15 +1,11 @@
-/**
- * Created by sunxiaodong on 2017/5/20.
- */
-
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addNavigationHelpers, StackNavigator } from 'react-navigation';
-import LoginScreen from '../login/components/LoginScreen';
-import MainScreen from '../main/components/MainScreen';
+
+import MainScreen from '../main/MainScreen';
 
 export const AppNavigator = StackNavigator({
-  Login: { screen: LoginScreen },
   Main: { screen: MainScreen },
 });
 
@@ -19,7 +15,7 @@ const AppWithNavigationState = ({ dispatch, nav }) => (
 
 AppWithNavigationState.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  nav: PropTypes.object.isRequired,
+  nav: PropTypes.shape({}).isRequired,
 };
 
 const mapStateToProps = state => ({

@@ -1,17 +1,13 @@
-/**
- * Created by sunxiaodong on 2017/5/19.
- */
-
 import React, { Component } from 'react';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import AppWithNavigationState from './navigators/AppNavigator';
-import * as reducers from './reducers';
+import AppWithNavigationState from './pages/navigators/AppNavigator';
+import * as Reducers from './pages/Reducers';
 
-const reducer = combineReducers(reducers);
+const reducer = combineReducers(Reducers);
 const store = createStore(reducer);
 
-export default class Container extends Component {
+export default class App extends Component {
   render() {
     return (
       <Provider store={store}>

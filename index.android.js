@@ -1,10 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import { AppRegistry } from 'react-native';
 
-import Container from './rn/pages/ContainerApp';
-import {AppRegistry} from 'react-native';
+import App from './app/App';
 
-AppRegistry.registerComponent('data_present_rn', () => Container);
+AppRegistry.registerComponent('app', () => App);

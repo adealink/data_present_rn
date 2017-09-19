@@ -1,12 +1,13 @@
 /**
  * Created by sunxiaodong on 2017/5/20.
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { View, StyleSheet, Text, Button, TextInput } from 'react-native';
-import { dp } from '../../../utils/DimensionUtil';
-import * as mainActions from './actions';
+import { dp } from '../../utils/DimensionUtil';
+import * as Actions from './Actions';
 
 /**
  * 主界面
@@ -14,10 +15,6 @@ import * as mainActions from './actions';
 class MainScreen extends Component {
   static navigationOptions = {
     title: '首页',
-  };
-
-  static propTypes = {
-    navigation: PropTypes.object.isRequired,
   };
 
   constructor(props) {
@@ -56,16 +53,22 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    output: state.main.output,
-  };
+MainScreen.propTypes = {
+  navigation: PropTypes.shape({
+    dispatch: PropTypes.func.isRequired,
+  }).isRequired,
+  actions: PropTypes.shape({
+    change: PropTypes.func,
+  }),
+  output: PropTypes.string,
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    actions: bindActionCreators(mainActions, dispatch),
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  output: state.main.output,
+});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  actions: bindActionCreators(Actions, dispatch),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainScreen);
